@@ -18,14 +18,13 @@ export const Contact: React.FC = () => {
 
     // FormSubmit Configuration
     // Primary recipient is in the URL fetch below
-    formData.append("_cc", "o.itangisha@gmail.com"); // CC the second email
     formData.append("_subject", "New Website Inquiry - BIMH LTD");
     formData.append("_template", "table"); // Makes the email look nice
     formData.append("_captcha", "false"); // Disable captcha for smoother experience (optional)
 
     try {
       // Using AJAX to send without redirecting the user
-      const response = await fetch("https://formsubmit.co/ajax/mabano.joseph@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/o.itangisha@gmail.com", {
         method: "POST",
         body: formData
       });
