@@ -23,62 +23,33 @@ export const Contact: React.FC = () => {
     const message = formData.get('message') as string;
 
     try {
-      // Using Resend API to send email
-      const response = await fetch("https://api.resend.com/emails", {
+      // Call backend API endpoint to send email via Resend
+      // This avoids CORS issues by routing through your server
+      const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer re_RQEzFzbr_PDq2Jfki2yEJ6gCKShH9BFXX`
         },
         body: JSON.stringify({
-          from: "BIMH LTD Contact Form <onboarding@resend.dev>",
-          to: ["o.itangisha@gmail.com"],
-          subject: "New Website Inquiry - BIMH LTD",
-          html: `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-              <h2 style="color: #e08d26; border-bottom: 2px solid #e08d26; padding-bottom: 10px;">
-                New Contact Form Submission
-              </h2>
-              <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-                <tr style="background-color: #f5f5f5;">
-                  <td style="padding: 12px; font-weight: bold; border: 1px solid #ddd;">Name:</td>
-                  <td style="padding: 12px; border: 1px solid #ddd;">${name}</td>
-                </tr>
-                <tr>
-                  <td style="padding: 12px; font-weight: bold; border: 1px solid #ddd;">Email:</td>
-                  <td style="padding: 12px; border: 1px solid #ddd;">${email}</td>
-                </tr>
-                <tr style="background-color: #f5f5f5;">
-                  <td style="padding: 12px; font-weight: bold; border: 1px solid #ddd;">Phone:</td>
-                  <td style="padding: 12px; border: 1px solid #ddd;">${phone}</td>
-                </tr>
-                <tr>
-                  <td style="padding: 12px; font-weight: bold; border: 1px solid #ddd;">Interested In:</td>
-                  <td style="padding: 12px; border: 1px solid #ddd;">${interest}</td>
-                </tr>
-                <tr style="background-color: #f5f5f5;">
-                  <td style="padding: 12px; font-weight: bold; border: 1px solid #ddd; vertical-align: top;">Message:</td>
-                  <td style="padding: 12px; border: 1px solid #ddd;">${message.replace(/\n/g, '<br>')}</td>
-                </tr>
-              </table>
-              <p style="margin-top: 20px; color: #666; font-size: 12px;">
-                This email was sent from the BIMH LTD website contact form.
-              </p>
-            </div>
-          `
+          name,
+          email,
+          phone,
+          interest,
+          message
         })
       });
 
       const data = await response.json();
 
-      if (response.ok) {
+      if (response.ok && (data.success || data.id)) {
         setIsSubmitted(true);
         form.reset();
       } else {
-        setErrorMessage(data.message || "Something went wrong. Please try again or email us directly.");
+        setErrorMessage(data.error || data.message || "Something went wrong. Please try again or email us directly.");
       }
-    } catch (error) {
-      setErrorMessage("Network error. Please try again later.");
+    } catch (error: any) {
+      console.error('Form submission error:', error);
+      setErrorMessage(error.message || "Network error. Please check your connection and try again, or email us directly at o.itangisha@gmail.com");
     } finally {
       setIsSubmitting(false);
     }

@@ -24,10 +24,22 @@ BIMH Ltd specializes in:
    npm install
    ```
 
-2. Run the development server:
+2. Run the development servers (both frontend and backend):
    ```bash
-   npm run dev
+   npm run dev:all
    ```
+   
+   Or run them separately:
+   ```bash
+   # Terminal 1 - Frontend (Vite)
+   npm run dev
+   
+   # Terminal 2 - Backend (Express API)
+   npm run server
+   ```
+   
+   The frontend will be available at `http://localhost:3000`
+   The backend API will be available at `http://localhost:3001`
 
 3. Build for production:
    ```bash
