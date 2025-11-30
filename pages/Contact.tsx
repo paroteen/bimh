@@ -15,25 +15,67 @@ export const Contact: React.FC = () => {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
-
-    // FormSubmit Configuration
-    // Primary recipient is in the URL fetch below
-    formData.append("_subject", "New Website Inquiry - BIMH LTD");
-    formData.append("_template", "table"); // Makes the email look nice
-    formData.append("_captcha", "false"); // Disable captcha for smoother experience (optional)
+    
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const phone = formData.get('phone') as string;
+    const interest = formData.get('interest') as string;
+    const message = formData.get('message') as string;
 
     try {
-      // Using AJAX to send without redirecting the user
-      const response = await fetch("https://formsubmit.co/ajax/o.itangisha@gmail.com", {
+      // Using Resend API to send email
+      const response = await fetch("https://api.resend.com/emails", {
         method: "POST",
-        body: formData
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer re_RQEzFzbr_PDq2Jfki2yEJ6gCKShH9BFXX`
+        },
+        body: JSON.stringify({
+          from: "BIMH LTD Contact Form <onboarding@resend.dev>",
+          to: ["o.itangisha@gmail.com"],
+          subject: "New Website Inquiry - BIMH LTD",
+          html: `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+              <h2 style="color: #e08d26; border-bottom: 2px solid #e08d26; padding-bottom: 10px;">
+                New Contact Form Submission
+              </h2>
+              <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                <tr style="background-color: #f5f5f5;">
+                  <td style="padding: 12px; font-weight: bold; border: 1px solid #ddd;">Name:</td>
+                  <td style="padding: 12px; border: 1px solid #ddd;">${name}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px; font-weight: bold; border: 1px solid #ddd;">Email:</td>
+                  <td style="padding: 12px; border: 1px solid #ddd;">${email}</td>
+                </tr>
+                <tr style="background-color: #f5f5f5;">
+                  <td style="padding: 12px; font-weight: bold; border: 1px solid #ddd;">Phone:</td>
+                  <td style="padding: 12px; border: 1px solid #ddd;">${phone}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px; font-weight: bold; border: 1px solid #ddd;">Interested In:</td>
+                  <td style="padding: 12px; border: 1px solid #ddd;">${interest}</td>
+                </tr>
+                <tr style="background-color: #f5f5f5;">
+                  <td style="padding: 12px; font-weight: bold; border: 1px solid #ddd; vertical-align: top;">Message:</td>
+                  <td style="padding: 12px; border: 1px solid #ddd;">${message.replace(/\n/g, '<br>')}</td>
+                </tr>
+              </table>
+              <p style="margin-top: 20px; color: #666; font-size: 12px;">
+                This email was sent from the BIMH LTD website contact form.
+              </p>
+            </div>
+          `
+        })
       });
+
+      const data = await response.json();
 
       if (response.ok) {
         setIsSubmitted(true);
         form.reset();
       } else {
-        setErrorMessage("Something went wrong. Please try again or email us directly.");
+        setErrorMessage(data.message || "Something went wrong. Please try again or email us directly.");
       }
     } catch (error) {
       setErrorMessage("Network error. Please try again later.");
