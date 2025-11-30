@@ -41,8 +41,8 @@ BIMH Ltd specializes in:
 
 ## Contact
 
-- **Email:** mabano.joseph@gmail.com
-- **Phone:** +250 788 306 938
+- **Email:** o.itangisha@gmail.com
+- **Phone:** +250 783 594 197
 - **Address:** Nyarugunga - Kicukiro, Kigali, Rwanda
 
 ## License
