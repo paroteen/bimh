@@ -77,8 +77,7 @@ export const PRODUCTS: Product[] = [
     title: 'High-Quality Building Stones',
     description: "Durable stone blocks and crushed aggregates suitable for residential, commercial, and public infrastructure projects.",
     features: ["Structural safety assurance", "Consistent quality control", "Various aggregate sizes"],
-    // Building stone blocks and aggregates for construction projects
-    imageUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "/images/High-Quality Building Stones.webp",
     icon: Mountain,
   },
   {
@@ -86,8 +85,7 @@ export const PRODUCTS: Product[] = [
     title: 'Stone Cutting & Shaping',
     description: "Tailored services for contractors requiring specific dimensions and finishes for unique architectural needs.",
     features: ["Custom dimensions", "Precision cutting", "Project-specific finishes"],
-    // Precision stone cutting and shaping machinery
-    imageUrl: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "/images/stone cutting.webp",
     icon: Hammer,
   },
   {
@@ -95,8 +93,7 @@ export const PRODUCTS: Product[] = [
     title: 'Transport & Delivery',
     description: "Efficient logistics solutions using our own fleet of trucks and tippers to ensure timely delivery to your site.",
     features: ["Reliable fleet", "Timely delivery", "Logistics coordination"],
-    // Tipper truck delivering construction materials
-    imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "/images/Transport & Delivery.jpg",
     icon: Truck,
   },
   {
@@ -104,8 +101,7 @@ export const PRODUCTS: Product[] = [
     title: 'Eco-Tourism & Conservation',
     description: "Future initiatives integrating responsible quarrying with educational eco-parks and swamp conservation.",
     features: ["Reforestation programs", "Swamp protection", "Community education"],
-    // Eco-tourism and conservation with reforestation and nature protection
-    imageUrl: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "/images/Eco-Tourism & Conservation F.jpg",
     icon: Sprout,
   },
 ];

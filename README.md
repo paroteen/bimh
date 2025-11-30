@@ -1,20 +1,50 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# BIMH Ltd - Building Stone Extraction & Supply
 
-# Run and deploy your AI Studio app
+BIMH Ltd is a women-led building stone extraction and supply company based in Kigali City, Rwanda, committed to providing high-quality construction stones to support the nation's growing infrastructure and real estate sector.
 
-This contains everything you need to run your app locally.
+## About
 
-View your app in AI Studio: https://ai.studio/apps/drive/17rMv9p3Np3tf1ie-C1Bf5ImL9db2JLuh
+BIMH Ltd specializes in:
+- High-quality building stones and aggregates
+- Stone cutting and shaping services
+- Transport and delivery solutions
+- Eco-tourism and conservation initiatives
 
-## Run Locally
+## Getting Started
 
-**Prerequisites:**  Node.js
+### Prerequisites
 
+- Node.js (v16 or higher recommended)
+- npm or yarn
+
+### Installation
 
 1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+   ```bash
+   npm install
+   ```
+
+2. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+3. Build for production:
+   ```bash
+   npm run build
+   ```
+
+4. Preview production build:
+   ```bash
+   npm run preview
+   ```
+
+## Contact
+
+- **Email:** mabano.joseph@gmail.com
+- **Phone:** +250 788 306 938
+- **Address:** Nyarugunga - Kicukiro, Kigali, Rwanda
+
+## License
+
+Private - All rights reserved
