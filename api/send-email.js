@@ -1,7 +1,13 @@
-// Serverless function to send email via Resend API
-// This can be deployed to Vercel, Netlify, or any serverless platform
-
+// Vercel serverless function to send email via Resend API
 export default async function handler(req, res) {
+  // Handle CORS preflight requests
+  if (req.method === 'OPTIONS') {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    return res.status(200).end();
+  }
+
   // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -19,12 +25,15 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
+  // Get API key from environment variable (set in Vercel dashboard)
+  const RESEND_API_KEY = process.env.RESEND_API_KEY || 're_RQEzFzbr_PDq2Jfki2yEJ6gCKShH9BFXX';
+
   try {
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer re_RQEzFzbr_PDq2Jfki2yEJ6gCKShH9BFXX`
+        'Authorization': `Bearer ${RESEND_API_KEY}`
       },
       body: JSON.stringify({
         from: 'BIMH LTD Contact Form <onboarding@resend.dev>',

@@ -51,6 +51,29 @@ BIMH Ltd specializes in:
    npm run preview
    ```
 
+## Deployment to Vercel
+
+The contact form will work on Vercel! Here's how to deploy:
+
+1. **Push your code to GitHub** (already done)
+
+2. **Import your project to Vercel**:
+   - Go to [vercel.com](https://vercel.com)
+   - Click "New Project"
+   - Import your GitHub repository
+
+3. **Configure Environment Variables**:
+   - In Vercel project settings, go to "Environment Variables"
+   - Add: `RESEND_API_KEY` = `re_RQEzFzbr_PDq2Jfki2yEJ6gCKShH9BFXX`
+   - Make sure to add it for Production, Preview, and Development
+
+4. **Deploy**:
+   - Vercel will automatically detect Vite and deploy
+   - The API function in `/api/send-email.js` will automatically be deployed as a serverless function
+   - Your contact form will work at `https://your-app.vercel.app`
+
+**Note**: The Express server (`server.js`) is only needed for local development. Vercel uses the serverless function in `/api/send-email.js` automatically.
+
 ## Contact
 
 - **Email:** o.itangisha@gmail.com
