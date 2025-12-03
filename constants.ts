@@ -16,8 +16,8 @@ import { CompanyValue, NavItem, Product, TeamMember, Testimonial } from './types
 
 export const COMPANY_NAME = "BIMH LTD";
 export const TAGLINE = "Solid Foundations. Sustainable Future.";
-export const CONTACT_EMAIL = "o.itangisha@gmail.com";
-export const CONTACT_PHONE = "+250 783 594 197";
+export const CONTACT_EMAIL = "mabano.joseph@gmail.com";
+export const CONTACT_PHONE = "0788306938";
 export const CONTACT_ADDRESS = "Nyarugunga - Kicukiro, Kigali, Rwanda";
 
 export const NAV_ITEMS: NavItem[] = [

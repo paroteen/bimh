@@ -49,7 +49,7 @@ export const Contact: React.FC = () => {
       }
     } catch (error: any) {
       console.error('Form submission error:', error);
-      setErrorMessage(error.message || "Network error. Please check your connection and try again, or email us directly at o.itangisha@gmail.com");
+      setErrorMessage(error.message || "Network error. Please check your connection and try again, or email us directly at mabano.joseph@gmail.com");
     } finally {
       setIsSubmitting(false);
     }

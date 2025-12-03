@@ -37,7 +37,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: 'BIMH LTD Contact Form <onboarding@resend.dev>',
-        to: ['o.itangisha@gmail.com'],
+        to: ['mabano.joseph@gmail.com'],
         subject: 'New Website Inquiry - BIMH LTD',
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">

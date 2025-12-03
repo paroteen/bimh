@@ -76,8 +76,8 @@ The contact form will work on Vercel! Here's how to deploy:
 
 ## Contact
 
-- **Email:** o.itangisha@gmail.com
-- **Phone:** +250 783 594 197
+- **Email:** mabano.joseph@gmail.com
+- **Phone:** 0788306938
 - **Address:** Nyarugunga - Kicukiro, Kigali, Rwanda
 
 ## License
